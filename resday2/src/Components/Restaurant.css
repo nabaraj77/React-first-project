@@ -1,0 +1,14 @@
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-bottom: 2px solid tomato;
+}
+li {
+  padding: 10px;
+  color: black;
+  font-size: x-large;
+  cursor: pointer;
+}
