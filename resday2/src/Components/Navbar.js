@@ -16,7 +16,7 @@ const Navbar = ({ click, menus }) => {
                 </>
               );
             })}
-            <li>All</li>
+            <li onClick={() => click("All")}>All</li>
           </ul>
         </div>
       </div>

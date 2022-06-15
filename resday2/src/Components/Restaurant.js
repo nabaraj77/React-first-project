@@ -18,6 +18,9 @@ function Restaurant() {
   //console.log(uniqueTitle);
   const [menus] = useState(uniqueTitle);
   const click = (category) => {
+    if (category === "All") {
+      return setItems(Menus);
+    }
     //console.log(category);
     const arr = items.filter((currElement) => {
       return currElement.category === category;
