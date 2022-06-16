@@ -6,7 +6,8 @@ import "./Restaurant.css";
 import Navbar from "./Navbar";
 
 function Restaurant() {
-  const [items, setItems] = useState(Menus);
+  const [items] = useState(Menus);
+  const [category, setCategory] = useState("All");
   //FOR UNIQUE ELEMENT
   const uniqueTitle = [
     ...new Set(
@@ -18,21 +19,21 @@ function Restaurant() {
   //console.log(uniqueTitle);
   const [menus] = useState(uniqueTitle);
   const click = (category) => {
-    if (category === "All") {
-      return setItems(Menus);
-    }
-    //console.log(category);
-    const arr = items.filter((currElement) => {
-      return currElement.category === category;
-    });
-    //console.log(arr);
-    setItems(arr);
+    setCategory(category);
   };
-
+  //console.log(category);
   return (
     <>
       <Navbar click={click} menus={menus} />
-      <DisplayItems items={items} />
+
+      <DisplayItems
+        items={items.filter((item) => {
+          if (category === "All") {
+            return category;
+          }
+          return item.category === category;
+        })}
+      />
     </>
   );
 }
